@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Donation Connect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://cdn.create.vista.com/downloads/56e27239-56d0-432e-b587-99573f2f105e_1024.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header {
+      background: rgba(76, 175, 80, 0.85);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 2.2em;
+      font-weight: bold;
+      border-bottom: 4px solid white;
+      border-radius: 0 0 12px 12px;
+      animation: bounceHeader 3s ease-in-out infinite;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      gap: 25px;
+    }
+
+    section {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      padding: 25px;
+      width: 90%;
+      max-width: 600px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideFadeUp 1s forwards;
+    }
+
+    section:nth-of-type(1) { animation-delay: 0.3s; }
+    section:nth-of-type(2) { animation-delay: 0.6s; }
+    section:nth-of-type(3) { animation-delay: 0.9s; }
+
+    section:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      color: #2e7d32;
+      font-size: 1.6em;
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px;
+      margin-top: 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      width: 100%;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #43a047;
+      animation: pulse 0.6s infinite alternate;
+    }
+
+    .next-page-button-container {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .next-button {
+      display: inline-block;
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      animation: wave 2s infinite ease-in-out;
+    }
+
+    .next-button:hover {
+      background-color: #43a047;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: rgba(76, 175, 80, 0.9);
+      color: white;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      font-weight: bold;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideFadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounceHeader {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    @keyframes wave {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(6px); }
+    }
+
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Donation Connect
+  </header>
+
+  <main>
+    <section>
+      <h2>Request for Donation</h2>
+      <form id="donationRequestForm">
+        <label for="instituteName">Institute Name:</label>
+        <input type="text" id="instituteName" required>
+
+        <label for="item">Item:</label>
+        <input type="text" id="item" required>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" required>
+
+        <button type="submit">Submit Request</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Donor Section</h2>
+      <form id="donorForm">
+        <label for="donorName">Donor Name:</label>
+        <input type="text" id="donorName" required>
+
+        <label for="donationAmount">Donation Amount ($):</label>
+        <input type="number" id="donationAmount" required>
+
+        <button type="submit">Donate</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Feedback</h2>
+      <form id="feedbackForm">
+        <label for="feedback">Feedback:</label>
+        <textarea id="feedback" rows="4" required></textarea>
+        <button type="submit">Submit Feedback</button>
+      </form>
+    </section>
+
+    <!-- ✅ Go to Next Page Button -->
+    <div class="next-page-button-container">
+      <a href="index4.html" class="next-button">➡️ Go to Next Page</a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Donation Connect. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('donationRequestForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert("Donation request submitted successfully.");
+    });
+
+    document.getElementById('donorForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const donorName = document.getElementById('donorName').value;
+      const donationAmount = document.getElementById('donationAmount').value;
+      alert(`${donorName}, thank you for your generous donation of $${donationAmount}!`);
+    });
+
+    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const feedback = document.getElementById('feedback').value;
+      alert("Thank you for your feedback: " + feedback);
+    });
+  </script>
+</body>
+</html>

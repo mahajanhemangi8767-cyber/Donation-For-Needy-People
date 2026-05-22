@@ -1,0 +1,126 @@
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    background-image: url('https://img.freepik.com/free-vector/flat-illustration-earthquake-turkey_23-2150199262.jpg?ga=GA1.1.910440444.1728588556&semt=ais_hybrid');
+    background-size: cover;  /* Ensures the background image covers the entire screen */
+    background-position: center;  /* Keeps the background centered */
+}
+
+/* Header styling */
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Main content area */
+main {
+    padding: 20px;
+}
+
+/* Section styling */
+section {
+    background: rgba(255, 255, 255, 0.8); /* Add a slight transparency to the sections */
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading for each section */
+h2 {
+    color: #35424a;
+    margin-bottom: 15px;
+}
+
+/* Form elements styling */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Button styling */
+button {
+    background: #35424a;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+/* Section for donation requests */
+#donation-requests ul, #donor-details ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#donation-requests li, #donor-details li {
+    margin: 5px 0;
+    padding: 10px;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Section for overall summary */
+#overall-summary {
+    margin-top: 20px;
+}
+
+#summary p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #35424a;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #35424a;
+    color: #ffffff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    section {
+        padding: 15px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    input, textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+}

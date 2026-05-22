@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate for Needy - Select Donation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://dynamic.brandcrowd.com/template/preview/design/a0d2864f-5e3e-4b0a-90f2-0dd2d2d5b02c?v=4&designTemplateVersion=1&size=design-preview-standalone-1x');
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .top-line, .bottom-line {
+            width: 100%;
+            height: 50px;
+            background-color: #4CAF50; /* Green color for the line */
+            position: fixed;
+            left: 0;
+        }
+        
+        .top-line {
+            top: 0;
+        }
+        
+        .bottom-line {
+            bottom: 0;
+        }
+
+        .donation-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 350px;
+            z-index: 10;
+        }
+
+        .donation-box h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .donation-item {
+            margin-bottom: 20px;
+        }
+
+        .donation-item img {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+            border-radius: 8px;
+        }
+
+        input[type="number"], input[type="submit"], select {
+            padding: 12px;
+            width: 100%;
+            margin-top: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+
+        input[type="number"], select {
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .back-btn {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Top Line -->
+    <div class="top-line"></div>
+
+    <header>
+        <h1 style="color: black; font-size: 32px;">Donate for Needy - Select Donation</h1>
+    </header>
+
+    <div class="donation-box">
+        <h2>Choose a Donation Category</h2>
+
+        <!-- Donation Categories -->
+        <form id="donationForm">
+            <label for="donation-category">Select a Donation Category:</label>
+            <select id="donation-category" name="category" required>
+                <option value="clothes">Clothes</option>
+                <option value="blood">Blood</option>
+                <option value="food">Food</option>
+                <option value="money">Money</option>
+            </select>
+
+            <!-- Dynamic Content for Donation -->
+            <div id="donation-details" class="donation-item">
+                <!-- Default Content for Clothes -->
+                <img src="https://example.com/cloth-image.jpg" alt="Cloth Item">
+                <p>Cloth Description: Warm jacket for winter</p>
+                <p><strong>Price:</strong> $30</p>
+            </div>
+
+            <label for="amount">Enter Amount to Donate:</label>
+            <input type="number" id="amount" name="amount" min="1" required placeholder="Enter amount to donate" aria-label="Amount to donate">
+
+            <input type="submit" value="Make Donation">
+        </form>
+
+        <!-- Back to Home -->
+        <a href="index.html" class="back-btn">Back to Home</a>
+    </div>
+
+    <!-- Bottom Line -->
+    <div class="bottom-line"></div>
+
+    <script>
+        // Handle form submission
+        document.getElementById('donationForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent form from submitting normally
+
+            const category = document.getElementById('donation-category').value;
+            const amount = document.getElementById('amount').value;
+
+            if (amount >= 1) {
+                alert('Thank you for your donation! You are donating ' + amount + ' towards ' + category + '.');
+                // Here, you can also redirect the user or process payment through a payment gateway API
+                window.location.href = 'thank-you.html'; // Redirect to a Thank You page or a confirmation page
+            } else {
+                alert('Please enter a valid donation amount.');
+            }
+        });
+
+        // Update donation content based on category selection
+        document.getElementById('donation-category').addEventListener('change', function() {
+            const category = this.value;
+            const donationDetails = document.getElementById('donation-details');
+
+            if (category === 'clothes') {
+                donationDetails.innerHTML = `
+                    <img src="https://example.com/cloth-image.jpg" alt="Cloth Item">
+                    <p>Cloth Description: Warm jacket for winter</p>
+                    <p><strong>Price:</strong> $30</p>
+                `;
+            } else if (category === 'blood') {
+                donationDetails.innerHTML = `
+                    <img src="https://example.com/blood-image.jpg" alt="Blood Donation">
+                    <p>Blood Donation: Help save lives by donating blood.</p>
+                    <p><strong>Price:</strong> Free (Your blood is the donation!)</p>
+                `;
+            } else if (category === 'food') {
+                donationDetails.innerHTML = `
+                    <img src="https://example.com/food-image.jpg" alt="Food Donation">
+                    <p>Food Donation: Provide meals for the hungry.</p>
+                    <p><strong>Price:</strong> $25 for a week's worth of meals.</p>
+                `;
+            } else if (category === 'money') {
+                donationDetails.innerHTML = `
+                    <p>Monetary Donation: Your money will go towards various relief efforts for those in need.</p>
+                    <p><strong>Price:</strong> Choose your desired amount.</p>
+                `;
+            }
+        });
+    </script>
+
+</body>
+</html>

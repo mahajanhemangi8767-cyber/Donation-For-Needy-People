@@ -1,0 +1,91 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    background-image: url('https://www.shutterstock.com/image-vector/raised-people-hands-holding-donation-260nw-2526961909.jpg'); /* Background Image */
+    background-size: cover;  /* Ensures the background image covers the entire screen */
+    background-position: center;  /* Keeps the background centered */
+}
+
+/* Header styling */
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Main content area */
+main {
+    padding: 20px;
+}
+
+/* Section styling */
+section {
+    background: rgba(255, 255, 255, 0.8); /* Slight transparency to sections for readability */
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading for each section */
+h2 {
+    color: #35424a;
+    margin-bottom: 15px;
+}
+
+/* Section for overall summary */
+#overall-summary {
+    margin-top: 20px;
+}
+
+#summary p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #35424a;
+}
+
+/* Section for PhonePe Scanner */
+#phonepe-scanner {
+    text-align: center;
+    margin-top: 20px;
+    padding: 40px 0;
+    border-radius: 5px;
+}
+
+#phonepe-scanner img {
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #35424a;
+    color: #ffffff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    section {
+        padding: 15px;
+    }
+
+    #phonepe-scanner img {
+        width: 150px;
+        height: 150px;
+    }
+}

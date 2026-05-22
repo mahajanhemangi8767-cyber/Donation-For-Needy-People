@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+    background: url('https://cdn.create.vista.com/downloads/56e27239-56d0-432e-b587-99573f2f105e_1024.jpeg');
+    background-size: cover;
+
+}
+.container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: url('your-image-url.jpg') no-repeat center center;
+    background-size: cover;
+}
+.login-box, .donation-box {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 350px;
+}
+
+.login-box h2, .donation-box h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+input[type="text"], input[type="password"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+input[type="submit"], .donate-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+input[type="submit"]:hover, .donate-btn:hover {
+    background-color: #45a049;
+}
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+.hidden {
+    display: none;
+}

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SHG Management System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url('https://img.freepik.com/free-vector/flat-hand-drawn-clothing-donation-concept_52683-54454.jpg');
+      background-size: cover;
+      animation: fadeInBody 1.2s ease-in-out forwards;
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .container {
+      width: 80%;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      animation: popIn 1s ease-in-out;
+    }
+
+    @keyframes popIn {
+      from {
+        transform: scale(0.9);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    .form-container {
+      margin-bottom: 30px;
+      animation: slideIn 1s ease-in-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tr {
+      animation: fadeInRow 0.6s ease;
+    }
+
+    @keyframes fadeInRow {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Self-Help Group Management</h1>
+
+    <div class="form-container">
+      <h2>Add Member</h2>
+      <form id="memberForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="id">Member ID:</label>
+        <input type="number" id="id" required>
+
+        <label for="donation">Donated Items (e.g., food, clothes):</label>
+        <input type="text" id="donation" placeholder="food, clothes">
+
+        <button type="submit">Add Member</button>
+      </form>
+    </div>
+
+    <div class="form-container">
+      <h2>Update Member Info</h2>
+      <form id="updateForm">
+        <label for="updateId">Member ID:</label>
+        <input type="number" id="updateId" required>
+        <label for="savings">Savings Amount:</label>
+        <input type="number" id="savings" required>
+        <label for="loan">Loan Amount:</label>
+        <input type="number" id="loan" required>
+        <button type="submit">Update Info</button>
+      </form>
+    </div>
+
+    <div>
+      <h2>Members List</h2>
+      <table id="membersTable">
+        <thead>
+          <tr>
+            <th>Member ID</th>
+            <th>Name</th>
+            <th>Savings</th>
+            <th>Loan</th>
+            <th>Donated Items</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Member data will be inserted here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    function loadMembers() {
+      const members = JSON.parse(localStorage.getItem('members')) || [];
+      return members;
+    }
+
+    function saveMembers(members) {
+      localStorage.setItem('members', JSON.stringify(members));
+    }
+
+    function displayMembers() {
+      const members = loadMembers();
+      const tableBody = document.getElementById('membersTable').getElementsByTagName('tbody')[0];
+      tableBody.innerHTML = '';
+
+      members.forEach(member => {
+        const row = document.createElement('tr');
+
+        row.innerHTML = `
+          <td>${member.id}</td>
+          <td>${member.name}</td>
+          <td>${member.savings}</td>
+          <td>${member.loan}</td>
+          <td>${member.donation || '-'}</td>
+        `;
+
+        tableBody.appendChild(row);
+      });
+    }
+
+    document.getElementById('memberForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const id = document.getElementById('id').value;
+      const donation = document.getElementById('donation').value;
+
+      const members = loadMembers();
+      if (members.find(member => member.id === id)) {
+        alert("Member with this ID already exists.");
+        return;
+      }
+
+      const newMember = {
+        id: id,
+        name: name,
+        savings: 0,
+        loan: 0,
+        donation: donation
+      };
+
+      members.push(newMember);
+      saveMembers(members);
+      document.getElementById('memberForm').reset();
+      displayMembers();
+    });
+
+    document.getElementById('updateForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const id = document.getElementById('updateId').value;
+      const savings = document.getElementById('savings').value;
+      const loan = document.getElementById('loan').value;
+
+      const members = loadMembers();
+      const member = members.find(member => member.id === id);
+
+      if (member) {
+        member.savings = parseFloat(savings);
+        member.loan = parseFloat(loan);
+        saveMembers(members);
+
+        alert(`Updated ${member.name}'s savings and loan.`);
+        document.getElementById('updateForm').reset();
+        displayMembers();
+      } else {
+        alert("Member not found.");
+      }
+    });
+
+    displayMembers();
+  </script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Animated AI Chatbot</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('https://miro.medium.com/v2/resize:fit:1400/1*jtNZIbJ_MQc6u2TVt9QQAA.png');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .chat-container {
+      background-color: rgba(255, 255, 255, 0.9);
+      width: 400px;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      animation: slideIn 1s ease-out;
+      display: flex;
+      flex-direction: column;
+      height: 80vh;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(100px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .chat-box {
+      flex-grow: 1;
+      max-height: 70%;
+      overflow-y: auto;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .chat-message {
+      max-width: 80%;
+      padding: 10px 14px;
+      border-radius: 15px;
+      margin: 0;
+      opacity: 0;
+      animation: fadeIn 0.5s forwards;
+    }
+
+    .chat-message.bot {
+      background-color: #e0e0e0;
+      color: #333;
+      align-self: flex-start;
+      display: flex;
+      gap: 10px;
+    }
+
+    .chat-message.user {
+      background-color: #007bff;
+      color: white;
+      align-self: flex-end;
+      text-align: right;
+      display: flex;
+      gap: 10px;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .input-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    input[type="text"] {
+      width: 80%;
+      padding: 12px 15px;
+      border: 2px solid #ccc;
+      border-radius: 25px;
+      outline: none;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    }
+
+    button {
+      padding: 12px 16px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .bot-icon {
+      width: 25px;
+      height: 25px;
+      vertical-align: middle;
+    }
+
+    .input-group input,
+    .input-group button {
+      border-radius: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <h2>AI Chatbot</h2>
+    <div class="chat-box" id="chat-box">
+      <div class="chat-message bot"><img src="https://img.icons8.com/ios/452/robot.png" alt="bot-icon" class="bot-icon"><strong>Bot:</strong> Welcome! How can I assist you today?</div>
+    </div>
+    <div class="input-group">
+      <input type="text" id="user-input" placeholder="Ask me anything..." />
+      <button onclick="handleUserInput()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    const chatBox = document.getElementById("chat-box");
+
+    function appendMessage(role, text) {
+      const message = document.createElement("div");
+      message.className = `chat-message ${role}`;
+      message.innerHTML = role === 'bot'
+        ? `<img src="https://img.icons8.com/ios/452/robot.png" alt="bot-icon" class="bot-icon"><strong>Bot:</strong> ${text}`
+        : `<strong>You:</strong> ${text}`;
+      chatBox.appendChild(message);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function handleUserInput() {
+      const input = document.getElementById("user-input");
+      const userMessage = input.value.trim();
+      if (!userMessage) return;
+
+      appendMessage("user", userMessage);
+      input.value = "";
+
+      // Bot logic
+      let response = "Sorry, I didn't understand that.";
+
+      const msg = userMessage.toLowerCase();
+
+      // FAQs and responses
+      if (msg.includes("how") && msg.includes("use")) {
+        response = "To use this website:<br>1. Select your donation type.<br>2. Enter your info.<br>3. Track via 'Track Donations'.";
+      } else if (msg.includes("track donation")) {
+        response = "To track a donation, go to the 'Track Donations' section and enter your Donation ID.";
+      } else if (msg.includes("contact")) {
+        response = "Contact us via: <br>Email: support@donationconnect.org<br>Phone: +91-9876543210";
+      } else if (msg.includes("hello") || msg.includes("hi")) {
+        response = "Hello! I'm your Donation Assistant. How can I help you today?";
+      } else if (msg.includes("doubts") || msg.includes("questions") || msg.includes("need help")) {
+        response = "If you have any doubts, feel free to ask! I'm here to help you with the website usage, donations, or anything else.";
+      } else if (msg.includes("extra information") || msg.includes("more details") || msg.includes("about the website")) {
+        response = "This website helps you to easily make donations, track them, and get involved in various charity initiatives. For more details, explore the 'About Us' section.";
+      } else if (msg.includes("problem") || msg.includes("issue")) {
+        response = "If you're facing any problem, please let me know, and I'll assist you right away.";
+      }
+
+      setTimeout(() => appendMessage("bot", response), 500);
+    }
+  </script>
+</body>
+</html>

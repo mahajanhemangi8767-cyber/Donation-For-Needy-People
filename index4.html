@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Connect - Research and Short Stories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://cdni.iconscout.com/illustration/premium/thumb/food-donation-illustration-download-in-svg-png-gif-file-formats--collecting-box-service-women-carrying-apple-and-drink-pack-people-illustrations-4328379.png?f=webp');
+            background-size: cover;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .story, .research, .volunteer-form {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .story h3, .research h3 {
+            color: #4CAF50;
+        }
+
+        .research p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .volunteer-form input,
+        .volunteer-form select {
+            width: 80%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        .volunteer-form textarea {
+            width: 80%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            resize: vertical; /* Allow the user to resize the box vertically */
+            min-height: 120px;
+        }
+
+        .volunteer-form button {
+            padding: 12px 30px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .volunteer-form button:hover {
+            background-color: #388E3C;
+        }
+
+        a {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #388E3C;
+            transform: scale(1.05);
+        }
+
+        /* Language Selector */
+        .language-selector {
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="headerTitle">Donation Connect - Research and Short Stories</h1>
+    </header>
+    <div class="container">
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <label for="language-select">Select Language: </label>
+            <select id="language-select" onchange="translateContent()">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="mr">Marathi</option>
+            </select>
+        </div>
+
+        <!-- Section for Stories -->
+        <div class="section">
+            <h2 id="sectionTitle1">Short Stories of Helping Needy People</h2>
+            <div class="story">
+                <h3 id="storyTitle1">Helping a Family in Need</h3>
+                <p id="storyContent1">Last year, we received a donation request from a family struggling with medical expenses. After raising funds, we were able to pay for their surgery, which ultimately saved their child's life. This family is now actively volunteering and helping others in their community.</p>
+            </div>
+            <div class="story">
+                <h3 id="storyTitle2">Feeding the Homeless</h3>
+                <p id="storyContent2">One of our most impactful donation campaigns focused on feeding homeless people during the winter. With your contributions, we provided hot meals to over 200 people in need. Many expressed their gratitude and shared stories of how small acts of kindness had restored their faith in humanity.</p>
+            </div>
+        </div>
+
+        <!-- Section for Research -->
+        <div class="section">
+            <h2 id="sectionTitle2">Research on Helping Needy People</h2>
+            <div class="research">
+                <h3 id="researchTitle1">Impact of Volunteering on Mental Health</h3>
+                <p id="researchContent1">Studies show that volunteering can significantly boost your mental health. A study by the Harvard Medical School found that people who volunteer are less likely to experience depression and anxiety. By helping others, you also help yourself!</p>
+            </div>
+            <div class="research">
+                <h3 id="researchTitle2">The Power of Small Donations</h3>
+                <p id="researchContent2">Research from the University of British Columbia has shown that small, consistent donations can be just as impactful as large ones. A $5 donation can feed a child for a day, and multiple small donations can create long-term change in a community.</p>
+            </div>
+        </div>
+
+        <!-- Volunteering Form -->
+        <div class="volunteer-form">
+            <h2 id="volunteerFormTitle">Become a Volunteer</h2>
+            <p id="volunteerFormText">Help us make a bigger difference in people's lives by volunteering your time and skills!</p>
+            <form>
+                <input type="text" placeholder="Your Full Name" required />
+                <input type="email" placeholder="Your Email Address" required />
+                <input type="tel" placeholder="Your Phone Number" required />
+                <select required>
+                    <option value="">Select Volunteer Area</option>
+                    <option value="Event Organizing">Event Organizing</option>
+                    <option value="Fundraising">Fundraising</option>
+                    <option value="Community Outreach">Community Outreach</option>
+                    <option value="Social Media Support">Social Media Support</option>
+                </select>
+                <textarea placeholder="Why do you want to volunteer?" rows="5" required></textarea>
+                <button type="submit">Submit Volunteer Form</button>
+            </form>
+        </div>
+
+        <!-- Go to next Button -->
+        <a href="indexx3.html">Go to next</a>
+    </div>
+
+    <script>
+        function translateContent() {
+            const language = document.getElementById('language-select').value;
+            
+            // Sample translation data
+            const translations = {
+                en: {
+                    headerTitle: "Donation Connect - Research and Short Stories",
+                    sectionTitle1: "Short Stories of Helping Needy People",
+                    sectionTitle2: "Research on Helping Needy People",
+                    storyTitle1: "Helping a Family in Need",
+                    storyContent1: "Last year, we received a donation request from a family struggling with medical expenses. After raising funds, we were able to pay for their surgery, which ultimately saved their child's life. This family is now actively volunteering and helping others in their community.",
+                    storyTitle2: "Feeding the Homeless",
+                    storyContent2: "One of our most impactful donation campaigns focused on feeding homeless people during the winter. With your contributions, we provided hot meals to over 200 people in need. Many expressed their gratitude and shared stories of how small acts of kindness had restored their faith in humanity.",
+                    researchTitle1: "Impact of Volunteering on Mental Health",
+                    researchContent1: "Studies show that volunteering can significantly boost your mental health. A study by the Harvard Medical School found that people who volunteer are less likely to experience depression and anxiety. By helping others, you also help yourself!",
+                    researchTitle2: "The Power of Small Donations",
+                    researchContent2: "Research from the University of British Columbia has shown that small, consistent donations can be just as impactful as large ones. A $5 donation can feed a child for a day, and multiple small donations can create long-term change in a community.",
+                    volunteerFormTitle: "Become a Volunteer",
+                    volunteerFormText: "Help us make a bigger difference in people's lives by volunteering your time and skills!"
+                },
+                hi: {
+                    headerTitle: "डोनेशन कनेक्ट - अनुसंधान और लघु कहानियाँ",
+                    sectionTitle1: "जरूरतमंद लोगों की मदद की लघु कहानियाँ",
+                    sectionTitle2: "जरूरतमंद लोगों की मदद पर अनुसंधान",
+                    storyTitle1: "जरूरतमंद परिवार की मदद करना",
+                    storyContent1: "पिछले साल, हमें एक परिवार से दान अनुरोध प्राप्त हुआ था जो चिकित्सा खर्चों से जूझ रहा था। धन जुटाने के बाद, हम उनके सर्जरी का खर्च उठा पाए, जिसने अंततः उनके बच्चे की जान बचाई। यह परिवार अब सक्रिय रूप से स्वंयसेवक बनकर अपने समुदाय में दूसरों की मदद कर रहा है।",
+                    storyTitle2: "बेघर लोगों को भोजन देना",
+                    storyContent2: "हमारी सबसे प्रभावशाली दान मुहिम में से एक बेघर लोगों को सर्दियों के दौरान भोजन देना था। आपके योगदान से, हम 200 से अधिक जरूरतमंद लोगों को गर्म भोजन प्रदान करने में सक्षम हुए। कई लोगों ने अपनी कृतज्ञता व्यक्त की और साझा किया कि किस तरह छोटे कार्यों ने उनके विश्वास को फिर से जीवित किया।",
+                    researchTitle1: "मानसिक स्वास्थ्य पर स्वंयसेवा का प्रभाव",
+                    researchContent1: "अध्यानों से यह पता चला है कि स्वंयसेवा से मानसिक स्वास्थ्य में महत्वपूर्ण वृद्धि होती है। हार्वर्ड मेडिकल स्कूल के अध्ययन में पाया गया कि जो लोग स्वंयसेवा करते हैं, वे अवसाद और चिंता से कम प्रभावित होते हैं। दूसरों की मदद करके आप खुद की भी मदद करते हैं!",
+                    researchTitle2: "छोटे दानों की शक्ति",
+                    researchContent2: "ब्रिटिश कोलंबिया विश्वविद्यालय के अनुसंधान से यह पता चला है कि छोटे और लगातार दान बड़े दानों के समान प्रभावी हो सकते हैं। $5 का दान एक बच्चे को एक दिन के लिए खाना दे सकता है, और कई छोटे दान एक समुदाय में दीर्घकालिक बदलाव ला सकते हैं।",
+                    volunteerFormTitle: "स्वयंसेवक बनें",
+                    volunteerFormText: "हमारे साथ मिलकर लोगों के जीवन में बड़ा बदलाव लाने में मदद करें!"
+                },
+                mr: {
+                    headerTitle: "दान कनेक्ट - संशोधन आणि लघुनिबंध",
+                    sectionTitle1: "गरजू लोकांच्या मदतीच्या लघुनिबंधांची गोष्टी",
+                    sectionTitle2: "गरजू लोकांच्या मदतीवरील संशोधन",
+                    storyTitle1: "गरजू कुटुंबाची मदत करणे",
+                    storyContent1: "गेल्या वर्षी, आम्हाला एक कुटुंबाने दान मागितले होते जे वैद्यकीय खर्चांमुळे त्रस्त होते. निधी गोळा केल्यानंतर, आम्ही त्यांच्यासाठी शस्त्रक्रियेचे खर्च उचलले, ज्यामुळे अखेर त्यांच्या मुलाचे प्राण वाचवले. हे कुटुंब आता सक्रियपणे स्वयंसेवक होऊन त्यांच्या समुदायात इतरांची मदत करत आहे.",
+                    storyTitle2: "भटक्या लोकांना अन्न देणे",
+                    storyContent2: "आमच्या सर्वात प्रभावी दान मोहिमांपैकी एक भटक्या लोकांना हिवाळ्यात अन्न देणे होती. तुमच्या योगदानामुळे, आम्ही 200 पेक्षा जास्त गरजू लोकांना गरम जेवण पुरवू शकलो. अनेक लोकांनी त्यांचा आभार व्यक्त केला आणि सांगितले की कसे छोटे कृतींनी त्यांचा विश्वास पुन्हा जीवंत केला.",
+                    researchTitle1: "मानसिक आरोग्यावर स्वयंसेवकत्त्वाचा प्रभाव",
+                    researchContent1: "अध्यानांनी असे दाखवले आहे की स्वयंसेवकत्त्व मानसिक आरोग्याला महत्त्वपूर्ण प्रोत्साहन देते. हार्वर्ड मेडिकल स्कूलच्या अभ्यासात असे आढळले की जे लोक स्वयंसेवकत्त्व करतात ते कमी मानसिक समस्या अनुभवतात. इतरांना मदत करून, आपण आपलेही मदत करत आहात!",
+                    researchTitle2: "लहान दानांची ताकद",
+                    researchContent2: "ब्रिटिश कोलंबिया विद्यापीठाच्या संशोधनाने असे दाखवले आहे की लहान आणि सातत्याने दिलेले दान मोठ्या दानांसारखेच प्रभावी असू शकतात. $5 चे दान एका मुलाला एक दिवसाचे भोजन देऊ शकते आणि अनेक लहान दान एक समुदायात दीर्घकालिक बदल करू शकतात.",
+                    volunteerFormTitle: "स्वयंसेवक बना",
+                    volunteerFormText: "आपल्या वेळेचा आणि कौशल्यांचा वापर करून लोकांच्या जीवनात मोठा फरक करा!"
+                }
+            };
+
+            // Applying the translation based on the selected language
+            const langData = translations[language];
+
+            // Updating text elements
+            document.getElementById("headerTitle").innerText = langData.headerTitle;
+            document.getElementById("sectionTitle1").innerText = langData.sectionTitle1;
+            document.getElementById("sectionTitle2").innerText = langData.sectionTitle2;
+            document.getElementById("storyTitle1").innerText = langData.storyTitle1;
+            document.getElementById("storyContent1").innerText = langData.storyContent1;
+            document.getElementById("storyTitle2").innerText = langData.storyTitle2;
+            document.getElementById("storyContent2").innerText = langData.storyContent2;
+            document.getElementById("researchTitle1").innerText = langData.researchTitle1;
+            document.getElementById("researchContent1").innerText = langData.researchContent1;
+            document.getElementById("researchTitle2").innerText = langData.researchTitle2;
+            document.getElementById("researchContent2").innerText = langData.researchContent2;
+            document.getElementById("volunteerFormTitle").innerText = langData.volunteerFormTitle;
+            document.getElementById("volunteerFormText").innerText = langData.volunteerFormText;
+        }
+    </script>
+</body>
+</html>
